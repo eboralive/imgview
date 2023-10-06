@@ -63,7 +63,8 @@ void MainGui::quit_program(bool success) {
 }
 
 
-void MainGui::set_image() {	
+void MainGui::set_image() {
+	this->resize(200,200);
 	m_image.set(pic_list[pic_list_index]); 
 	this->set_title(pic_list[pic_list_index]);
 }
@@ -110,7 +111,7 @@ void MainGui::delete_pic() {
 			std::cout << "no more pictures left.  closing." << std::endl;
 			quit_program(true);
 		} else {
-			std::cout << "current count is: " << pic_list.size() << std::endl;
+			// std::cout << "current count is: " << pic_list.size() << std::endl;
 		}		
                
         std::filesystem::rename(pic_list[index_to_delete], trash_file);
