@@ -41,6 +41,12 @@ bool MainGui::on_key_press(GdkEventKey* event) {
 	 goto_nextpic();
   } else  if (event->keyval == 'u') {
 	  undelete_last_pic();
+  } else  if (event->keyval == 'G') {
+	  char gimp_cmd[] = "gimp ";
+          strcat(gimp_cmd, pic_list[pic_list_index].c_str());
+          strcat(gimp_cmd, " &");
+	  int return_code = std::system(gimp_cmd);
+	  std::cout << "return code: " + std::to_string(return_code)  << std::endl;
   } else {
 	  std::cout << event->keyval << std::endl;	
   }
